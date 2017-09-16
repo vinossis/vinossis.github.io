@@ -43,7 +43,7 @@
 
 .showContent{
     width: 900px;
-    height: 400px;
+    height: 100%;
     float: left;
     outline: solid 1px green;
 }
