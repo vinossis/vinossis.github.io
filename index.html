@@ -18,33 +18,28 @@
                 {text:"lorem5"}]
         };
 
-        var officeList =[{
-            city: "Msk",
-            addres: "Суворовская площадь д1",
-            number: "7767",
-            param: "1"
-        },{
+        var items =[{
+            model: null,
             city: "Spb",
             addres: "Piterskiy addres",
             number: "1111",
-            param: "2"}
-        ];
-        var items= [{number: "1",
-            param2: "text2",
+            param: "2",
+            param2: "text22",
             param3: "text3",
-            param4: "text4",
-            param5: "text5",
-            param6: "text6",
-            param7: "text7"
+            param4: "text3"
         },{
-            number: "2",
-            param2: "lorem2",
-            param3: "lorem3",
-            param4: "lorem4",
-            param5: "lorem5",
-            param6: "lorem6",
-            param7: "lorem7"
+            model: null,
+            city: "Msk",
+            addres: "Суворовская площадь д1",
+            number: "7767",
+            param: "1",
+            param2: "text22",
+            param3: "text3",
+            param4: "text3"
         }];
+
+
+
         var tehnoApp = angular.module("tehnoApp",[]);
         tehnoApp.controller("nameCtrl", function ($scope) {
             $scope.name = getUser;
@@ -53,10 +48,12 @@
             $scope.text = soloList;
         });
         tehnoApp.controller("officeListCtrl", function ($scope) {
-            $scope.text = officeList;
             $scope.itemsScope = items;
         });
+        tehnoApp.controller("showitemCtrl", function ($scope) {
 
+
+        });
     </script>
 </head>
 <body>
@@ -83,20 +80,20 @@
                     <form action="">
                         <select class="optionWidth">
                             <option selected>Город</option>
-                            <option ng-repeat="city in text" value="{{city.city}}" ng-click="selectCity()">{{city.city}}</option>
+                            <option ng-repeat="city in itemsScope" value="{{city.city}}" >{{city.city}}</option>
                         </select>
                         <select class="optionWidth optionMidWidth">
                             <option selected>Адресс</option>
-                            <option ng-repeat="addres in text" value="{{addres.addres}}">{{addres.addres}}</option>
+                            <option ng-repeat="addres in itemsScope" value="{{addres.addres}}">{{addres.addres}}</option>
                         </select>
                         <select class="optionWidth ">
                             <option selected>Номер офиса</option>
-                            <option ng-repeat="numberOffice in text">{{numberOffice.number}}</option>
+                            <option ng-repeat="numberOffice in itemsScope">{{numberOffice.number}}</option>
                         </select>
                         <input type="button" value="Поиск">
                     </form>
                 </div>
-                <div class="showContent" ng-controller="officeListCtrl">
+                <div class="showContent" >
                     <table class="tableStyle">
                         <tr>
                             <th>1</th>
@@ -108,13 +105,13 @@
                             <th>7</th>
                         </tr>
                         <tr ng-repeat="item in itemsScope">
+                            <td>{{item.city}}</td>
+                            <td>{{item.addres}}</td>
                             <td>{{item.number}}</td>
+                            <td>{{item.param}}</td>
                             <td>{{item.param2}}</td>
                             <td>{{item.param3}}</td>
                             <td>{{item.param4}}</td>
-                            <td>{{item.param5}}</td>
-                            <td>{{item.param6}}</td>
-                            <td>{{item.param7}}</td>
                         </tr>
                     </table>
                 </div>
