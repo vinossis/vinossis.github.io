@@ -1,0 +1,145 @@
+$wrapper_width: 900px;
+$wrapper_height: 700px;
+$wrapper_font_size: 16px;
+
+$header_width: $wrapper_width;
+$header_height: 232px;
+
+$button_1: #093f85;
+$button_1_text_color: #fff;
+$button_2: #fff;
+$button_2_text_color: #093f85;
+
+$login_submit: #093f85;
+$login_submit_bg: #fff;
+body {
+  margin: 0px;
+  padding: 0;
+  font-size: 0;
+}
+
+.wrapper {
+  width: $wrapper_width;
+  min-height: $wrapper_height;
+  font-size: $wrapper_font_size;
+  margin: 0 auto;
+}
+.header {
+  width: $header_width;
+  height: $header_height;
+  background: url("../img/header.png") no-repeat;
+}
+.content {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.button_1 {
+  height: 32px;
+  background: $button_1;
+  border: 0;
+  color: $button_1_text_color;
+  border-radius: 5px;
+}
+.button_1_position {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+.button_1:hover {
+  cursor: pointer;
+}
+.form_position_submit:hover {
+  cursor: pointer;
+}
+.button_2 {
+  background: $button_2;
+}
+
+/*  login block*/
+
+.block_login {
+  width: 425px;
+  height: 160px;
+  margin: 20px auto 0 auto;
+  background: #093f85;
+  border-radius:  5px/30px;
+  color: #5b94df;
+}
+.form_login span {
+  width: 100%;
+  margin-left: 35px;
+}
+.form_login span .form_position_submit {
+  display: inline-block;
+  float: right;
+  margin-right: 35%;
+}
+.form_position_edit1, .form_position_edit2 {
+  width: 280px;
+  height: 25px;
+  margin-top: 20px;
+  margin-left: 23px;
+  border-radius: 5px;
+  border-style: none;
+}
+.form_position_edit2 {
+  width: 280px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+.form_position_submit {
+  height: 32px;
+  width: 135px;
+  background: $login_submit_bg;
+  border: 0;
+  color: $login_submit;
+  border-radius: 5px;
+  margin-top: 25px ;
+}
+
+/* registr block*/
+
+.block_regist {
+  width: 510px;
+  min-height: 230px;
+  margin: 20px auto 0 auto;
+  background: #093f85;
+  border-radius:  5px/30px;
+  color: #5b94df;
+}
+
+.block_regist .form_position_edit1 {
+  float: right;
+  margin-right: 45px;
+  margin-top: 10px;
+}
+.block_regist span .form_position_submit_reg {
+
+  float: right;
+}
+.form_position_submit_reg {
+  height: 32px;
+  width: 135px;
+  background: $login_submit_bg;
+  border: 0;
+  color: $login_submit;
+  border-radius: 5px;
+  margin-top: 25px ;
+  margin-right: 30%;
+}
+.form_span {
+  width: 120px;
+  height: 200px;
+  float: left;
+  padding-left: 30px;
+  padding-top: 10px;
+  font-size: 16px;
+}
+.form_span span {
+  display: block;
+  width: 130px;
+}

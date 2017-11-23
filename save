@@ -1,0 +1,39 @@
+    var officeList =[{
+            city: "Msk",
+            addres: "Суворовская площадь д1",
+            number: "7767",
+            param: "1"
+        },{
+            city: "Spb",
+            addres: "Piterskiy addres",
+            number: "1111",
+            param: "2"},
+            items = [{
+                city: "Spb",
+                number: "1",
+                param2: "text22",
+                param3: "text3",
+                param4: "text4ww",
+                param5: "text5",
+                param6: "text6",
+                param7: "text7"
+            },{
+                city: "Spb",
+                number: "2",
+                param2: "lorem23",
+                param3: "lorem3",
+                param4: "lorem4",
+                param5: "lorem5",
+                param6: "lorem6",
+                param7: "lorem7"
+            },{
+                city: "Spb",
+                number: "2",
+                param2: "lorem23",
+                param3: "lorem3",
+                param4: "lorem4",
+                param5: "lorem5",
+                param6: "lorem6",
+                param7: "lorem7"
+            }]
+        ];
