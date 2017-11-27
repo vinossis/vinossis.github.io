@@ -1,122 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="tehnoApp">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Техника</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/angular.js"></script>
-    <script>
-        var getUser = {
-            userName:"Meltsov Valerii",
-            image:"src"
-        };
-        var soloList = {
-            name: [{text:"lorem1"},
-                {text:"lorem2"},
-                {text:"lorem3"},
-                {text:"lorem4"},
-                {text:"lorem5"}]
-        };
-
-        var items =[{
-            model: null,
-            city: "Spb",
-            addres: "Piterskiy addres",
-            number: "1111",
-            param: "2",
-            param2: "text22",
-            param3: "text3",
-            param4: "text3"
-        },{
-            model: null,
-            city: "Msk",
-            addres: "Суворовская площадь д1",
-            number: "7767",
-            param: "1",
-            param2: "text22",
-            param3: "text3",
-            param4: "text3"
-        }];
-
-
-
-        var tehnoApp = angular.module("tehnoApp",[]);
-        tehnoApp.controller("nameCtrl", function ($scope) {
-            $scope.name = getUser;
-        });
-        tehnoApp.controller("soloListCtrl", function ($scope) {
-            $scope.text = soloList;
-        });
-        tehnoApp.controller("officeListCtrl", function ($scope) {
-            $scope.itemsScope = items;
-        });
-        tehnoApp.controller("showitemCtrl", function ($scope) {
-
-
-        });
-    </script>
+    <title>Title</title>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header"></div>
-        <div class="content" ng-controller="nameCtrl">
-            <div class="userPhoto"><img src="{{name.image}}" alt="ваше фото"></div>
-            <div class="userName" >
-                <span>{{name.userName}}</span>
-            </div>
-            <div class="select" >
-                <form action="">
-                    <select ng-controller="soloListCtrl">
-                        <option selected>Параметры поиска</option>
-                        <option ng-repeat="info in text.name" value="{{info.text}}">{{info.text}}</option>
-                    </select>
-                    <input type="text">
-                    <input type="button" value="Поиск">
-                </form>
-            </div>
-            <div ng-controller="officeListCtrl">
-                <div class="bigSelect" >
-                    <form action="">
-                        <select class="optionWidth">
-                            <option selected>Город</option>
-                            <option ng-repeat="city in itemsScope" value="{{city.city}}" >{{city.city}}</option>
-                        </select>
-                        <select class="optionWidth optionMidWidth">
-                            <option selected>Адресс</option>
-                            <option ng-repeat="addres in itemsScope" value="{{addres.addres}}">{{addres.addres}}</option>
-                        </select>
-                        <select class="optionWidth ">
-                            <option selected>Номер офиса</option>
-                            <option ng-repeat="numberOffice in itemsScope">{{numberOffice.number}}</option>
-                        </select>
-                        <input type="button" value="Поиск">
-                    </form>
-                </div>
-                <div class="showContent" >
-                    <table class="tableStyle">
-                        <tr>
-                            <th>1</th>
-                            <th>2</th>
-                            <th>3</th>
-                            <th>4</th>
-                            <th>5</th>
-                            <th>6</th>
-                            <th>7</th>
-                        </tr>
-                        <tr ng-repeat="item in itemsScope">
-                            <td>{{item.city}}</td>
-                            <td>{{item.addres}}</td>
-                            <td>{{item.number}}</td>
-                            <td>{{item.param}}</td>
-                            <td>{{item.param2}}</td>
-                            <td>{{item.param3}}</td>
-                            <td>{{item.param4}}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+
+<div id="head">
+    <button class="add">Добавить</button>
+    <button class="refresh">Обновить</button>
+    <button class="brSearch">Поиск</button>
+    <input type="text" class="editText" value="Событие, дата или участник">
+</div>
+<div id="content">
+    <div id="headContent">
+        <button class="backMonth">Назад</button>
+        <span class="month">Месяц</span>
+        <button class="nextMonth">Вперед</button>
     </div>
+    <div class="midContent">
+        <table border="1" id="asd">
+            <thead>
+
+            <tr>
+                <td>Понедельник, </td>
+                <td>Вторник, </td>
+                <td>Среда, </td>
+                <td>Четверг, </td>
+                <td>Пятница, </td>
+                <td>Суббота, </td>
+                <td>Воскресенье, </td>
+            </tr>
+            <tbody>
+        </table>
+    </div>
+</div>
+<script>
+    function Calendar2(id, year, month) {
+        var Dlast = new Date(year,month+1,0).getDate(),
+            D = new Date(year,month,Dlast),
+            DNlast = new Date(D.getFullYear(),D.getMonth(),Dlast).getDay(),
+            DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
+            calendar = '<tr>',
+            month=["Январь","Февраль","Март","Апрель","Май","Июнь","Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь"];
+        if (DNfirst != 0) {
+            for(var  i = 1; i < DNfirst; i++) calendar += '<td>';
+        }else{
+            for(var  i = 0; i < 6; i++) calendar += '<td>';
+        }
+        for(var  i = 1; i <= Dlast; i++) {
+            if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+                calendar += '<td class="today">' + i;
+            }else{
+                calendar += '<td>' + i;
+            }
+            if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
+                calendar += '<tr>';
+            }
+        }
+        for(var  i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
+        document.querySelector('#'+id+' tbody').innerHTML = calendar;
+        document.querySelector('#headContent span.month').innerHTML = month[D.getMonth()] +' '+ D.getFullYear();
+        document.querySelector('#'+id+' thead td:nth-child(2)').dataset.month = D.getMonth();
+        document.querySelector('#'+id+' thead td:nth-child(2)').dataset.year = D.getFullYear();
+
+    }
+    Calendar2("asd", new Date().getFullYear(), new Date().getMonth());
+    document.querySelector('#headContent button.backMonth').onclick = function() {
+        Calendar2("asd", document.querySelector('#asd thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#asd thead td:nth-child(2)').dataset.month)-1);
+    }
+    // переключатель плюс месяц
+    document.querySelector('#headContent button.nextMonth').onclick = function() {
+        Calendar2("asd", document.querySelector('#asd thead td:nth-child(2)').dataset.year, parseFloat(document.querySelector('#asd thead td:nth-child(2)').dataset.month)+1);
+    }
+</script>
 </body>
 </html>
